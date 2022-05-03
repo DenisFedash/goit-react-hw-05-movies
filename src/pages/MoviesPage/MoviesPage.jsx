@@ -1,11 +1,11 @@
-import { SearchBar } from 'components/SearchBar/SearchBar.jsx';
-import fetchSearchMovies from 'services/fetch-search-movies.js';
-import { MovieList } from 'components/MovieList/MovieList.jsx';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import fetchSearchMovies from 'services/fetch-search-movies.js';
+import { SearchBar } from 'components/SearchBar/SearchBar.jsx';
+import { MovieList } from 'components/MovieList/MovieList.jsx';
 
 export const MoviesPage = () => {
-  const { search } = useLocation;
+  const { search } = useLocation();
   const query = new URLSearchParams(search).get('query') ?? '';
 
   const [movies, setMovies] = useState(null);

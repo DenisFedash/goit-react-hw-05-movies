@@ -1,3 +1,5 @@
+import propTypes from 'prop-types';
+
 export const MoviesCard = ({ title, id, poster, voteAverage, voteCount }) => {
   let URL =
     'https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-%27';
@@ -20,4 +22,12 @@ export const MoviesCard = ({ title, id, poster, voteAverage, voteCount }) => {
       </div>
     </li>
   );
+};
+
+MoviesCard.prototype = {
+  id: propTypes.number,
+  title: propTypes.string,
+  poster: propTypes.string,
+  voteAverage: propTypes.number,
+  voteCount: propTypes.number,
 };

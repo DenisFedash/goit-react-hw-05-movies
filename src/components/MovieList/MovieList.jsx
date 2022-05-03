@@ -1,4 +1,6 @@
 import { MoviesCard } from 'components/MoviesCard/MoviesCard';
+import propTypes from 'prop-types';
+
 export const MovieList = ({ movies }) => {
   return (
     <ul>
@@ -13,4 +15,16 @@ export const MovieList = ({ movies }) => {
       ))}
     </ul>
   );
+};
+
+MovieList.prototype = {
+  movies: propTypes.arrayOf(
+    propTypes.shape({
+      id: propTypes.number,
+      title: propTypes.string,
+      poster: propTypes.string,
+      voteAverage: propTypes.number,
+      voteCount: propTypes.number,
+    })
+  ).isRequired,
 };
