@@ -1,46 +1,28 @@
-import { useState } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
 import { BiSearchAlt } from 'react-icons/bi';
-import PropTypes from 'prop-types';
 
-export function SearchBar({ onSubmit }) {
-  const [search, setSearch] = useState('');
+import { useLocation, useNavigate } from 'react-router-dom';
 
-  const onChangeInput = e => {
-    setSearch(e.currentTarget.value);
-  };
-
-  const onSubmitForm = e => {
+export const SearchBar = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  function onSubmitForm(e) {
     e.preventDefault();
+    const value = e.target.elements.query.value;
 
-    if (search.trim() === '') {
-      toast.error('Enter a search term!');
-      return;
-    }
-    onSubmit(search);
-  };
+    navigate({
+      ...location,
+      search: `query=${value}`,
+    });
+  }
+
   return (
     <div>
       <form onSubmit={onSubmitForm}>
+        <input type="text" name="query" />
         <button type="submit">
-          <span>
-            <BiSearchAlt size={20} />
-          </span>
+          <BiSearchAlt size={20} />
         </button>
-        <Toaster />
-        <input
-          type="text"
-          autoComplete="off"
-          autoFocus
-          placeholder="Search images and photos"
-          onChange={onChangeInput}
-          value={search}
-        />
       </form>
     </div>
   );
-}
-
-SearchBar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
 };

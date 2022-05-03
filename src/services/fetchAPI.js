@@ -1,7 +1,7 @@
 const keyAPI = '89b7d98b05de36091af2815feb76deb7';
 
-async function handlingResponseStatus(url = '', config = {}) {
-  const response = await fetch(url, config);
+async function handlingResponseStatus(url = '', filter = {}) {
+  const response = await fetch(url, filter);
 
   return response.ok
     ? await response.json()
