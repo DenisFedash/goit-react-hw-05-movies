@@ -1,6 +1,6 @@
 import { BiSearchAlt } from 'react-icons/bi';
-
 import { useLocation, useNavigate } from 'react-router-dom';
+import { Container } from './SearchBar.styled';
 
 export const SearchBar = () => {
   const location = useLocation();
@@ -16,13 +16,13 @@ export const SearchBar = () => {
   }
 
   return (
-    <div>
+    <Container>
       <form onSubmit={onSubmitForm}>
         <input type="text" name="query" />
         <button type="submit">
           <BiSearchAlt size={20} />
         </button>
       </form>
-    </div>
+    </Container>
   );
 };
