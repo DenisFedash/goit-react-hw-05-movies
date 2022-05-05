@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import fetchSearchMovies from 'services/fetch-search-movies.js';
+import { fetchSearchMovies } from 'services/fetchAPI';
 import { SearchBar } from 'components/SearchBar/SearchBar.jsx';
 import { MovieList } from 'components/MovieList/MovieList.jsx';
+import { Container } from 'pages/HomePage/HomePage.styled';
 
 export const MoviesPage = () => {
   const { search } = useLocation();
@@ -37,9 +38,9 @@ export const MoviesPage = () => {
     <>
       <SearchBar />
       {movies && (
-        <div>
+        <Container>
           <MovieList movies={movies} />
-        </div>
+        </Container>
       )}
     </>
   );

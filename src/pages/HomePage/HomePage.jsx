@@ -1,6 +1,7 @@
 import { MovieList } from 'components/MovieList/MovieList.jsx';
 import { useEffect, useState } from 'react';
 import * as fetchAPI from '../../services/fetchAPI.js';
+import { Container } from './HomePage.styled.js';
 
 export const HomePage = () => {
   const [movies, setMovies] = useState(null);
@@ -26,9 +27,9 @@ export const HomePage = () => {
 
   return (
     movies && (
-      <div>
+      <Container>
         <MovieList movies={movies} />
-      </div>
+      </Container>
     )
   );
 };

@@ -26,13 +26,13 @@ export function fetchMovieDetails(movieId) {
   );
 }
 
-export function getchMovieCredits(movieId) {
+export function fetchMovieCredits(movieId) {
   return handlingResponseStatus(
     `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${keyAPI}&language=en-US`
   );
 }
 
-export function getchMovieReviews(movieId) {
+export function fetchMovieReviews(movieId) {
   return handlingResponseStatus(
     `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${keyAPI}&language=en-US`
   );
