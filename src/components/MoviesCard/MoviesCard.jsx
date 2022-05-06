@@ -1,6 +1,14 @@
 import propTypes from 'prop-types';
-import { Link, useLocation } from 'react-router-dom';
-import { Item, Image, ImageThumb, Title, Text } from './MoviesCard.styled';
+import { useLocation } from 'react-router-dom';
+import {
+  Item,
+  Image,
+  ImageThumb,
+  Title,
+  Text,
+  Average,
+  CardLink,
+} from './MoviesCard.styled';
 
 export const MoviesCard = ({ title, id, poster, voteAverage, voteCount }) => {
   const location = useLocation;
@@ -10,20 +18,20 @@ export const MoviesCard = ({ title, id, poster, voteAverage, voteCount }) => {
 
   return (
     <Item>
-      <Link to={`/movies/${id}`} state={{ from: location }}>
+      <CardLink to={`/movies/${id}`} state={{ from: location }}>
         <ImageThumb>
           <Image
-            src={poster ? `https://image.tmdb.org/t/p/w500${poster}` : { URL }}
+            src={poster ? `https://image.tmdb.org/t/p/w500${poster}` : URL}
             alt={title}
           />
+          <Average>{voteAverage}</Average>
         </ImageThumb>
 
         <div>
           <Title> {title}</Title>
-          <p>{voteAverage}</p>
           <Text>Vote count: {voteCount}</Text>
         </div>
-      </Link>
+      </CardLink>
     </Item>
   );
 };

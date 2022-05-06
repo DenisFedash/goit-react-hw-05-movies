@@ -1,19 +1,22 @@
+import { Container } from 'components/SearchBar/SearchBar.styled';
 import PropTypes from 'prop-types';
+import { ReviewItem, ReviewTitle, RevievText } from './Review.styled';
 
 export const ReviewList = ({ reviews }) => {
   return (
-    <div>
+    <Container>
+      <hr />
       <ul>
         {reviews.map(({ id, author, text }) => {
           return (
-            <li key={id}>
-              <h2>{author}</h2>
-              <p>{text}</p>
-            </li>
+            <ReviewItem key={id}>
+              <ReviewTitle>{author}</ReviewTitle>
+              <RevievText>{text}</RevievText>
+            </ReviewItem>
           );
         })}
       </ul>
-    </div>
+    </Container>
   );
 };
 

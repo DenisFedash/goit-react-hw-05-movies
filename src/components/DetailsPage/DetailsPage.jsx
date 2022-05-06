@@ -1,5 +1,21 @@
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import propTypes from 'prop-types';
+import { Container } from 'components/SearchBar/SearchBar.styled';
+import { IoMdArrowDropright } from 'react-icons/io';
+import {
+  Poster,
+  CinemaCard,
+  CardTitle,
+  Date,
+  GenresItem,
+  List,
+  TitleAbout,
+  AboutText,
+  InfoItem,
+  Votes,
+  CustomLink,
+  CustomItem,
+} from './DetailsPage.styled';
 
 export const DetailsPage = ({ movieInfo }) => {
   const location = useLocation();
@@ -18,42 +34,52 @@ export const DetailsPage = ({ movieInfo }) => {
   } = movieInfo;
 
   return (
-    <div>
-      <img
-        src={poster ? `https://image.tmdb.org/t/p/w500${poster}` : { URL }}
-        alt={title}
-      />
-      <div>
-        <h1>{title}</h1>
-        <p>{releaseDate}</p>
-      </div>
-      <ul>
-        {genres && genres.map(({ id, name }) => <li key={id}>{name}</li>)}
-      </ul>
-      <div>{description}</div>
-      <div>
+    <Container>
+      <CinemaCard>
+        <Poster
+          src={poster ? `https://image.tmdb.org/t/p/w500${poster}` : { URL }}
+          alt={title}
+        />
         <div>
-          Vote average: <div>{voteAverage}</div>
+          <div>
+            <CardTitle>{title}</CardTitle>
+            <Date>{releaseDate}</Date>
+          </div>
+          <List>
+            {genres &&
+              genres.map(({ id, name }) => (
+                <GenresItem key={id}>{name}</GenresItem>
+              ))}
+          </List>
+          <TitleAbout>About</TitleAbout>
+          <AboutText>{description}</AboutText>
+          <List>
+            <InfoItem>
+              Vote average: <Votes>{voteAverage}</Votes>
+            </InfoItem>
+            <InfoItem>
+              Vote count: <Votes>{voteCount}</Votes>
+            </InfoItem>
+          </List>
         </div>
-        <div>
-          Vote count: <div>{voteCount}</div>
-        </div>
-      </div>
+      </CinemaCard>
 
-      <h2>Additional Information</h2>
+      <TitleAbout>Additional Information</TitleAbout>
       <ul>
-        <li>
-          <Link to="cast" state={{ from: location }}>
+        <CustomItem>
+          <CustomLink to="cast" state={{ from: location }}>
+            <IoMdArrowDropright />
             Cast
-          </Link>
-        </li>
-        <li>
-          <Link to="reviews" state={{ from: location }}>
+          </CustomLink>
+        </CustomItem>
+        <CustomItem>
+          <CustomLink to="reviews" state={{ from: location }}>
+            <IoMdArrowDropright />
             Reviews
-          </Link>
-        </li>
+          </CustomLink>
+        </CustomItem>
       </ul>
-    </div>
+    </Container>
   );
 };
 
