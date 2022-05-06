@@ -22,7 +22,7 @@ export const Poster = styled.img`
 `;
 
 export const CardTitle = styled.h1`
-  line-height: 23px;
+  line-height: 33px;
   margin-bottom: 20px;
 `;
 

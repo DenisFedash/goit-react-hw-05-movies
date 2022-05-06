@@ -1,4 +1,6 @@
+import { ReviewTitle } from 'components/ReviewList/Review.styled';
 import { ReviewList } from 'components/ReviewList/ReviewList';
+import { Container } from 'components/SearchBar/SearchBar.styled';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from 'services/fetchAPI';
@@ -24,8 +26,9 @@ export const Reviews = () => {
   return reviews && reviews.length > 0 ? (
     <ReviewList reviews={reviews} />
   ) : (
-    <div>
-      <h2>We don't have any reviews for this movie.</h2>
-    </div>
+    <Container>
+      <hr />
+      <ReviewTitle>We don't have any reviews for this movie.</ReviewTitle>
+    </Container>
   );
 };
