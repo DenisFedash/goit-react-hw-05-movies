@@ -1,3 +1,5 @@
+import { Load } from './Loader.styled';
+
 export function Loader() {
-  return <div>Loading...</div>;
+  return <Load>Loading...</Load>;
 }

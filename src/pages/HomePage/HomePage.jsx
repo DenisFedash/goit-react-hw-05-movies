@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import * as fetchAPI from '../../services/fetchAPI.js';
 import { Container } from './HomePage.styled.js';
 
-export const HomePage = () => {
+export default function HomePage() {
   const [movies, setMovies] = useState(null);
 
   useEffect(() => {
@@ -32,4 +32,4 @@ export const HomePage = () => {
       </Container>
     )
   );
-};
+}

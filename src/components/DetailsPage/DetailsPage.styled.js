@@ -28,7 +28,7 @@ export const CardTitle = styled.h1`
 
 export const Date = styled.p`
   margin-bottom: 10px;
-  &:nth-last-child(1) {
+  :nth-last-of-type {
     margin-bottom: 20px;
   }
   font-family: Roboto;
@@ -44,11 +44,11 @@ export const List = styled.ul`
 `;
 
 export const GenresItem = styled.li`
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   :not(:last-child) {
-    margin-right: 10px;
+    margin-right: 5px;
   }
-  :nth-last-child(1) {
+  :nth-last-of-type {
     margin-bottom: 20px;
   }
 
@@ -64,6 +64,7 @@ export const TitleAbout = styled.h2`
   font-size: 20px;
   line-height: 23px;
   margin-bottom: 20px;
+  margin-top: 20px;
 `;
 
 export const AboutText = styled.div`
@@ -82,7 +83,7 @@ export const InfoItem = styled.li`
   :not(:last-child) {
     margin-right: 50px;
   }
-  :nth-last-child(1) {
+  :nth-last-of-type {
     margin-bottom: 20px;
   }
 

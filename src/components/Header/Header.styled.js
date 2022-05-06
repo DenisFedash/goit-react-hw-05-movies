@@ -1,30 +1,27 @@
 import styled from '@emotion/styled';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export const ContainerHeader = styled.div`
   padding-left: 20px;
   padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
-
   height: 80px;
-
   background: black;
   padding-top: 41px;
-
   @media screen and (min-width: 768px) {
-    max-width: 768px;
+    min-width: 768px;
     padding-left: 75px;
     padding-right: 75px;
   }
-  @media screen and (min-width: 1024px) {
-    max-width: 1024px;
+  @media screen and (min-width: 1200px) {
+    max-width: 1200px;
     padding-left: 70px;
     padding-right: 70px;
   }
 `;
 
-export const Icon = styled.a`
+export const Icon = styled(Link)`
   display: flex;
   align-items: center;
   line-height: 1.17;

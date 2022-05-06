@@ -4,8 +4,9 @@ import { fetchSearchMovies } from 'services/fetchAPI';
 import { SearchBar } from 'components/SearchBar/SearchBar.jsx';
 import { MovieList } from 'components/MovieList/MovieList.jsx';
 import { Container } from 'pages/HomePage/HomePage.styled';
+import { Warning } from './MoviesPage.styled';
 
-export const MoviesPage = () => {
+export default function MoviesPage() {
   const { search } = useLocation();
   const query = new URLSearchParams(search).get('query') ?? '';
 
@@ -37,6 +38,12 @@ export const MoviesPage = () => {
   return (
     <>
       <SearchBar />
+      {movies < 1 && (
+        <Warning>
+          <h2>Movie list is empty 🙁</h2>
+          <p>Use search field!</p>
+        </Warning>
+      )}
       {movies && (
         <Container>
           <MovieList movies={movies} />
@@ -44,4 +51,4 @@ export const MoviesPage = () => {
       )}
     </>
   );
-};
+}

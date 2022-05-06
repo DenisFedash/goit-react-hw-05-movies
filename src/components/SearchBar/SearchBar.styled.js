@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const Container = styled.div`
   padding-top: 35px;
   padding-bottom: 35px;
-  /* width: 320px; */
+
   padding-left: 20px;
   padding-right: 20px;
   margin-left: auto;
@@ -21,14 +21,36 @@ export const Container = styled.div`
   }
 `;
 
+export const ContainerForm = styled.div`
+  padding-top: 35px;
+  padding-bottom: 35px;
+
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+  @media screen and (min-width: 1024px) {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+`;
+
 export const Form = styled.form`
   margin: 0 auto;
   padding-bottom: 22px;
-  width: 230px;
+  /* width: 230px; */
   vertical-align: middle;
   white-space: nowrap;
-  position: relative;
-  @media screen and (max-width: 768px) {
+  display: flex;
+  justify-content: center;
+
+  @media screen and (min-width: 768px) {
     width: 250px;
   }
 `;

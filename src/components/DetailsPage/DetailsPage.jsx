@@ -20,6 +20,7 @@ import {
 export const DetailsPage = ({ movieInfo }) => {
   const location = useLocation();
   // const subLocation = location.state.from;
+
   let URL =
     'https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-%27';
 
@@ -45,12 +46,12 @@ export const DetailsPage = ({ movieInfo }) => {
             <CardTitle>{title}</CardTitle>
             <Date>{releaseDate}</Date>
           </div>
-          <List>
+          <ul>
             {genres &&
               genres.map(({ id, name }) => (
                 <GenresItem key={id}>{name}</GenresItem>
               ))}
-          </List>
+          </ul>
           <TitleAbout>About</TitleAbout>
           <AboutText>{description}</AboutText>
           <List>

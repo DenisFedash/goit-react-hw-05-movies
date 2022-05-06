@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCredits } from 'services/fetchAPI';
 
-export const Cast = () => {
+export default function Cast() {
   const { movieId } = useParams();
   const [actors, setActors] = useState(null);
 
@@ -32,4 +32,4 @@ export const Cast = () => {
       <ReviewTitle>We don't have any actorth for this movie.</ReviewTitle>
     </Container>
   );
-};
+}

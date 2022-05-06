@@ -31,12 +31,13 @@ export const Item = styled.li`
 export const ImageThumb = styled.div`
   position: relative;
   padding-bottom: 10px;
+  height: 440px;
 
   @media screen and (min-width: 768px) {
     width: 293px;
   }
   @media screen and (min-width: 1024px) {
-    width: 274px;
+    width: 293px;
   }
 
   border-radius: 5px;
