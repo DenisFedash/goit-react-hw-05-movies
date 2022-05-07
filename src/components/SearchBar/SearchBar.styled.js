@@ -44,7 +44,6 @@ export const ContainerForm = styled.div`
 export const Form = styled.form`
   margin: 0 auto;
   padding-bottom: 22px;
-  /* width: 230px; */
   vertical-align: middle;
   white-space: nowrap;
   display: flex;

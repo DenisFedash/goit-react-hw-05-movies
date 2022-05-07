@@ -9,4 +9,9 @@ export const Load = styled.div`
   color: black;
   letter-spacing: 2px;
   padding-top: 15px;
+  padding-bottom: 4px;
+`;
+
+export const ContainerLoader = styled.div`
+  padding-bottom: 400px;
 `;
