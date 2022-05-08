@@ -1,10 +1,17 @@
 import { DetailsPage } from 'components/DetailsPage/DetailsPage';
 import { lazy, Suspense, useEffect, useState } from 'react';
-import { Route, Routes, useNavigate, useParams } from 'react-router-dom';
+import {
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+  useParams,
+} from 'react-router-dom';
 import * as fetchAPI from '../../services/fetchAPI.js';
 import { RiArrowGoBackLine } from 'react-icons/ri';
+import { Button, ButtonText } from './MovieDetailsPage.styled';
 import { Container } from 'components/SearchBar/SearchBar.styled';
-import { Button, ButtonText } from './MovieDetailsPage.styled.js';
+
 import { Loader } from 'components/Loader/Loader.jsx';
 
 const Cast = lazy(() => import('../Cast/Cast'));
@@ -12,6 +19,7 @@ const Reviews = lazy(() => import('../Reviews/Reviews'));
 
 export default function MovieDetailsPage() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { movieId } = useParams();
   const [movieInfo, setMovieInfo] = useState(null);
 
@@ -41,18 +49,15 @@ export default function MovieDetailsPage() {
         }
       );
   }, [movieId]);
+
+  const onGoBack = () => navigate(location?.state?.from ?? '/');
+
   return (
     <Container>
-      <Button
-        type="button"
-        onClick={() => {
-          navigate('/:movieId');
-        }}
-      >
+      <Button type="button" onClick={onGoBack}>
         <RiArrowGoBackLine />
         <ButtonText>Back</ButtonText>
       </Button>
-
       {movieInfo && <DetailsPage movieInfo={movieInfo} />}
       <Suspense fallback={<Loader />}>
         <Routes>

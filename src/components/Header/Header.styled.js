@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const ContainerHeader = styled.div`
   padding-left: 20px;
@@ -21,7 +21,7 @@ export const ContainerHeader = styled.div`
   }
 `;
 
-export const Icon = styled(Link)`
+export const Icon = styled(NavLink)`
   display: flex;
   align-items: center;
   line-height: 1.17;
@@ -61,7 +61,11 @@ export const NavItem = styled.li`
 
 export const MenuLink = styled(NavLink)`
   color: orange;
+  transition: orange;
   text-decoration: none;
+  &.active {
+    text-decoration: underline;
+  }
   :hover,
   :focus {
     color: white;

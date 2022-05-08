@@ -1,21 +1,19 @@
 import { useLocation } from 'react-router-dom';
 import propTypes from 'prop-types';
+
 import { Container } from 'components/SearchBar/SearchBar.styled';
-import { IoMdArrowDropright } from 'react-icons/io';
+// import { IoMdArrowDropright } from 'react-icons/io';
 import {
   Poster,
   CinemaCard,
   CardTitle,
   Date,
   GenresItem,
-  List,
-  TitleAbout,
-  AboutText,
-  InfoItem,
-  Votes,
-  CustomLink,
-  CustomItem,
+  ReleaseDate,
+  Genres,
 } from './DetailsPage.styled';
+import { About } from './About';
+import { AdditionalInfo } from './AdditionalInfo';
 
 export const DetailsPage = ({ movieInfo }) => {
   const location = useLocation();
@@ -34,6 +32,11 @@ export const DetailsPage = ({ movieInfo }) => {
     voteCount,
   } = movieInfo;
 
+  const formattedReleaseDate = releaseDate.split('-').reverse().join('.');
+
+  const movieGenres =
+    movieInfo !== null ? genres.map(genre => genre.name).join(', ') : 'Unknown';
+
   return (
     <Container>
       <CinemaCard>
@@ -44,42 +47,25 @@ export const DetailsPage = ({ movieInfo }) => {
         <div>
           <div>
             <CardTitle>{title}</CardTitle>
-            <Date>{releaseDate}</Date>
+            <ReleaseDate>
+              Release Date:<Date>{formattedReleaseDate}</Date>
+            </ReleaseDate>
           </div>
           <ul>
-            {genres &&
-              genres.map(({ id, name }) => (
-                <GenresItem key={id}>{name}</GenresItem>
-              ))}
+            <GenresItem>
+              <Genres>Genres: </Genres>
+              {movieGenres}
+            </GenresItem>
           </ul>
-          <TitleAbout>About</TitleAbout>
-          <AboutText>{description}</AboutText>
-          <List>
-            <InfoItem>
-              Vote average: <Votes>{voteAverage}</Votes>
-            </InfoItem>
-            <InfoItem>
-              Vote count: <Votes>{voteCount}</Votes>
-            </InfoItem>
-          </List>
+          <About
+            description={description}
+            voteAverage={voteAverage}
+            voteCount={voteCount}
+          />
         </div>
       </CinemaCard>
 
-      <TitleAbout>Additional Information</TitleAbout>
-      <ul>
-        <CustomItem>
-          <CustomLink to="cast" state={{ from: location }}>
-            <IoMdArrowDropright />
-            Cast
-          </CustomLink>
-        </CustomItem>
-        <CustomItem>
-          <CustomLink to="reviews" state={{ from: location }}>
-            <IoMdArrowDropright />
-            Reviews
-          </CustomLink>
-        </CustomItem>
-      </ul>
+      <AdditionalInfo state={{ from: location }} />
     </Container>
   );
 };

@@ -28,7 +28,7 @@ export default function HomePage() {
   return (
     movies && (
       <Container>
-        <MovieList movies={movies} />
+        <MovieList movies={movies} url={'/movies'} />
       </Container>
     )
   );

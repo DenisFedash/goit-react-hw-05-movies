@@ -11,7 +11,7 @@ import {
 } from './MoviesCard.styled';
 
 export const MoviesCard = ({ title, id, poster, voteAverage, voteCount }) => {
-  const location = useLocation;
+  const location = useLocation();
 
   let URL =
     'https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-%27';

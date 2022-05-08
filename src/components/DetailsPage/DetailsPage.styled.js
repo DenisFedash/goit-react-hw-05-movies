@@ -1,8 +1,12 @@
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const CinemaCard = styled.div`
   display: flex;
+  flex-direction: column;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 export const Poster = styled.img`
@@ -12,12 +16,10 @@ export const Poster = styled.img`
   width: 100%;
   height: 100%;
   @media screen and (min-width: 768px) {
-    width: 50%;
-    height: 50%;
+    width: 768px;
   }
   @media screen and (min-width: 1024px) {
-    width: 50%;
-    height: 50%;
+    width: 1024px;
   }
 `;
 
@@ -26,12 +28,17 @@ export const CardTitle = styled.h1`
   margin-bottom: 20px;
 `;
 
+export const ReleaseDate = styled.span`
+  display: flex;
+`;
+
 export const Date = styled.p`
   margin-bottom: 10px;
+  margin-left: 10px;
   :nth-last-of-type {
     margin-bottom: 20px;
   }
-  font-family: Roboto;
+
   font-weight: 500;
   font-style: normal;
 
@@ -57,6 +64,14 @@ export const GenresItem = styled.li`
 
   line-height: 16px;
   color: orange;
+`;
+
+export const Genres = styled.span`
+  font-weight: 500;
+  font-style: normal;
+
+  line-height: 16px;
+  color: black;
 `;
 
 export const TitleAbout = styled.h2`
@@ -106,10 +121,14 @@ export const CustomItem = styled.li`
   }
 `;
 
-export const CustomLink = styled(Link)`
+export const CustomLink = styled(NavLink)`
   font-weight: 500;
   font-style: normal;
   line-height: 20px;
   color: orange;
   text-decoration: none;
+  :hover,
+  :focus {
+    color: black;
+  }
 `;
