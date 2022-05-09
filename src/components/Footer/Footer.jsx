@@ -16,7 +16,7 @@ export const Footer = () => {
           <MenuLink to="movies">Movies</MenuLink>
         </NavItem>
       </FooterList>
-      <FooterTitle>© FILMOTEKA 2022</FooterTitle>
+      <FooterTitle>© by DenisFedash 2022</FooterTitle>
     </ContainerHeader>
   );
 };

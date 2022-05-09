@@ -8,6 +8,6 @@ export const FooterList = styled.div`
 
 export const FooterTitle = styled.h2`
   display: flex;
-  color: white;
+  color: orange;
   justify-content: flex-end;
 `;
