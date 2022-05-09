@@ -32,18 +32,17 @@ export const ImageThumb = styled.div`
   position: relative;
   padding-bottom: 10px;
   height: 440px;
+  border-radius: 5px;
+
+  transform: scale(1);
+  transition: transform 250ms linear;
 
   @media screen and (min-width: 768px) {
     width: 293px;
   }
   @media screen and (min-width: 1024px) {
-    width: 293px;
+    width: 274px;
   }
-
-  border-radius: 5px;
-
-  transform: scale(1);
-  transition: transform 250ms linear;
 `;
 
 export const Image = styled.img`

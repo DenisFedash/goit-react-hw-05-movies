@@ -11,7 +11,6 @@ import * as fetchAPI from '../../services/fetchAPI.js';
 import { RiArrowGoBackLine } from 'react-icons/ri';
 import { Button, ButtonText } from './MovieDetailsPage.styled';
 import { Container } from 'components/SearchBar/SearchBar.styled';
-
 import { Loader } from 'components/Loader/Loader.jsx';
 
 const Cast = lazy(() => import('../Cast/Cast'));
@@ -58,6 +57,7 @@ export default function MovieDetailsPage() {
         <RiArrowGoBackLine />
         <ButtonText>Back</ButtonText>
       </Button>
+      {movieInfo < 1 && <Loader />}
       {movieInfo && <DetailsPage movieInfo={movieInfo} />}
       <Suspense fallback={<Loader />}>
         <Routes>

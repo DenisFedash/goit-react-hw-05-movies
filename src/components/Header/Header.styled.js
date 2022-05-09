@@ -65,6 +65,7 @@ export const MenuLink = styled(NavLink)`
   text-decoration: none;
   &.active {
     text-decoration: underline;
+    color: white;
   }
   :hover,
   :focus {

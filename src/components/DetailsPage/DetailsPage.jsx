@@ -1,8 +1,5 @@
-import { useLocation } from 'react-router-dom';
 import propTypes from 'prop-types';
-
 import { Container } from 'components/SearchBar/SearchBar.styled';
-// import { IoMdArrowDropright } from 'react-icons/io';
 import {
   Poster,
   CinemaCard,
@@ -16,9 +13,6 @@ import { About } from './About';
 import { AdditionalInfo } from './AdditionalInfo';
 
 export const DetailsPage = ({ movieInfo }) => {
-  const location = useLocation();
-  // const subLocation = location.state.from;
-
   let URL =
     'https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-%27';
 
@@ -65,7 +59,7 @@ export const DetailsPage = ({ movieInfo }) => {
         </div>
       </CinemaCard>
 
-      <AdditionalInfo state={{ from: location }} />
+      <AdditionalInfo />
     </Container>
   );
 };

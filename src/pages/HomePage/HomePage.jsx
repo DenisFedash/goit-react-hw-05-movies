@@ -1,3 +1,4 @@
+import { Loader } from 'components/Loader/Loader.jsx';
 import { MovieList } from 'components/MovieList/MovieList.jsx';
 import { useEffect, useState } from 'react';
 import * as fetchAPI from '../../services/fetchAPI.js';
@@ -26,10 +27,13 @@ export default function HomePage() {
   }, []);
 
   return (
-    movies && (
-      <Container>
-        <MovieList movies={movies} url={'/movies'} />
-      </Container>
-    )
+    <>
+      {movies < 1 && <Loader />}
+      {movies && (
+        <Container>
+          <MovieList movies={movies} url={'/movies'} />
+        </Container>
+      )}
+    </>
   );
 }
