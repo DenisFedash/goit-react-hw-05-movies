@@ -5,7 +5,6 @@ import { SearchBar } from 'components/SearchBar/SearchBar.jsx';
 import { MovieList } from 'components/MovieList/MovieList.jsx';
 import { Container } from 'pages/HomePage/HomePage.styled';
 import { Warning } from './MoviesPage.styled';
-import { Loader } from 'components/Loader/Loader';
 
 export default function MoviesPage() {
   const { search } = useLocation();
