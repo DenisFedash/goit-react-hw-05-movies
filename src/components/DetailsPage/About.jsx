@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   AboutText,
   InfoItem,
@@ -21,4 +22,10 @@ export const About = ({ description, voteAverage, voteCount }) => {
       </List>
     </>
   );
+};
+
+About.propType = {
+  description: PropTypes.string,
+  voteAverage: PropTypes.number,
+  voteCount: PropTypes.number,
 };

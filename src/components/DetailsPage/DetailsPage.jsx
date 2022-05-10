@@ -73,10 +73,7 @@ DetailsPage.propTypes = {
         name: propTypes.string,
       })
     ),
-    description: propTypes.string,
     poster: propTypes.string,
     releaseDate: propTypes.string,
-    voteAverage: propTypes.number,
-    voteCount: propTypes.number,
   }),
 };
